@@ -145,7 +145,7 @@ firebase.auth().onAuthStateChanged(user => {
       inputs.signupInputs.password.value = null;
     }
     
-    inputs.name.markup.innerHTML = `Hello, ${user.name}`;
+    inputs.name.markup.innerHTML = `Hello!`;
     inputs.buttons.signout.classList.remove('hidden');
     form.classList.add('hidden');
     Materialize.toast('Logged in!', 2000, 'rounded');
