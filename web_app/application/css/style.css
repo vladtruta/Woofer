@@ -63,19 +63,17 @@ footer.page-footer {
 .overflow-hidden {
   overflow: hidden;
 }
-
 /* Vlad's CSS Stylesheet */
-
  nav ul a,
  nav .brand-logo {
    color: white;
  }
- 
+
  nav{
    position: fixed;
    z-index: 100
  }
- 
+
  p {
    line-height: 2rem;
  }
@@ -83,69 +81,33 @@ footer.page-footer {
  #index-banner .section {
    padding-top: 60px;
  }
- 
- .header {
-  /*text-shadow: 2px 2px 10px rgba(0,0,0,0.7);*/
- }
- 
  #logo-image {
    width: 63px;
  }
- 
+
  .button-collapse {
    color: #87eaff;
  }
- 
- .parallax-container {
-   min-height: 400px;
-   line-height: 0;
-   height: auto;
-   color: rgba(255,255,255,.9);
-   background-color: rgba(0,0,0,0.3)
- }
-   .parallax-container .section {
-     width: 100%;
-   }
- 
  .how-to-text {
    text-align: center;
  }
- 
+
  .users_buttons li{
    display: inline-block;
    margin-right:5px;
  }
- 
+
  .users_buttons a {
    width: 130px;
  }
- 
- @media only screen and (max-width : 992px) {
-   .parallax-container .section {
-     position: absolute;
-     top: 40%;
-   }
-   #index-banner .section {
-     top: 10%;
-   }
- }
- 
- @media only screen and (max-width : 600px) {
-   #index-banner .section {
-     top: 0;
-   }
-   #logo-image {
-     width: 56px;
-   }
- }
- 
+
  .icon-block {
    padding: 0 15px;
  }
  .icon-block .material-icons {
    font-size: inherit;
  }
- 
+
  footer.page-footer {
    margin: 0;
  }
