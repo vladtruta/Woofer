@@ -95,7 +95,7 @@
 															<label for="password">Password</label>
 														</div>
 													</div>
-													<div class="">
+													<div>
 														<button id="btn-login" class="btn waves-effect waves-light light-blue darken-3" type="" name="action">
 															Login
 															<i class="material-icons right">send</i>
@@ -111,34 +111,59 @@
 			</div>
 		</div>
 	</div>
+	<div class="container auth">
+	<div class="card">
+		<div class="card-content light-blue darken-3" >
+						<h4 class="title-light">Add Dog</h4>
+		</div>
+	<div class="container">
+	<div class="row" id="add_doggo">
 
-	<div id="add-doggo">
-		<form action="/upload" method="post" enctype="multipart/form-data" >
-			<label class="btn btn-default btn-file">
-					Browse <input <input type="file" name="image" style="display: none;">
-			</label>
-			<input type="submit" value="Upload your image" class="btn btn-primary">
+		<form class="col s12" action="" id="doggo-image-form" enctype="multipart/form-data">
+			<div class="row">
+				<div class="input-field col s12 m6">
+					<i class="material-icons prefix">pets</i>
+					<input name="dog_name" type="text" class="validate">
+					<label for="dog_name">Dog's name</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12 m6">
+					<i class="material-icons prefix">location_city</i>
+					<input type="text"  name="dog_birthplace" class="validate">
+					<label for="dog_birthplace">Dog's birthplace</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12 m6">
+					<i class="material-icons prefix">import_contacts</i>
+					<input type="text" name="dog_address" class="validate">
+					<label for="dog_address">Dog's current address</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="file-field input-field">					
+					<div class="btn light-blue darken-3">
+						Upload<i class="material-icons right">insert_photo</i>
+						<input type="file" accept="image/*" name="dog_image" class="validate">						
+					</div>					
+					<div class="file-path-wrapper">					
+       					<input class="file-path validate" type="text">
+    				</div>
+				</div>
+				<div>
+					<button id="btn-submit" class="btn waves-effect waves-light light-blue darken-3 right" type="" name="action">
+						Submit
+						<i class="material-icons right">send</i>
+					</button>
+				</div>
+			</div>
 		</form>
 	</div>
-
-	<div id="add-dogo">
-		<form action="" id="doggo-image-form" enctype="multipart/form-data">
-			<label for="dog_image">Upload a picture of your beloved dog</label>
-			<input type="file" accept="image/*" name="dog_image" required>
-
-			<label for="dog_name">Dog's name</label>
-			<input type="text" placeholder="Enter dog's name" name="dog_name">
-
-			<label for="dog_birthplace">Dog's birthplace</label>
-			<input type="address" placeholder="Birthplace" name="dog_birthplace">
-
-			<label for="dog_address">Dog's current address</label>
-			<input type="address" placeholder="Dog's current address" name="dog_address">
-		</form>
-		<button id="submit-btn">Submit</button>
 	</div>
-
-  
+	</div>
+	</div>
+</div>
 
 
 	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>

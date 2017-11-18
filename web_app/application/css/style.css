@@ -152,3 +152,7 @@ footer.page-footer {
 #add-dogo {
   margin-top: 20vh;
 }
+.right
+{
+  float: right;
+}
