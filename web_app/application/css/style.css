@@ -144,3 +144,11 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+#auth-form {
+  margin-bottom: 20vh;
+}
+
+#add-dogo {
+  margin-top: 20vh;
+}

@@ -112,21 +112,35 @@
 		</div>
 	</div>
 
-	<div id="home">
-
+	<div id="add-doggo">
+		<form action="/upload" method="post" enctype="multipart/form-data" >
+			<label class="btn btn-default btn-file">
+					Browse <input <input type="file" name="image" style="display: none;">
+			</label>
+			<input type="submit" value="Upload your image" class="btn btn-primary">
+		</form>
 	</div>
 
-	<div id="dogs">
+	<div id="add-dogo">
+		<form action="" id="doggo-image-form" enctype="multipart/form-data">
+			<label for="dog_image">Upload a picture of your beloved dog</label>
+			<input type="file" accept="image/*" name="dog_image" required>
 
+			<label for="dog_name">Dog's name</label>
+			<input type="text" placeholder="Enter dog's name" name="dog_name">
+
+			<label for="dog_birthplace">Dog's birthplace</label>
+			<input type="address" placeholder="Birthplace" name="dog_birthplace">
+
+			<label for="dog_address">Dog's current address</label>
+			<input type="address" placeholder="Dog's current address" name="dog_address">
+		</form>
+		<button id="submit-btn">Submit</button>
 	</div>
-<!--
-  <form action="" id="doggo-image-form" enctype="multipart/form-data">
-    <label for="dog_image">Upload a picture of your beloved dog</label>
-    <input type="file" accept="image/*" name="dog_image" required>
-  </form>
 
-  <button id="submit-btn">Submit</button>
--->
+  
+
+
 	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
