@@ -2,6 +2,9 @@
 
 let display = null;
 
+const roofRef = firebase.database().ref();
+const dogsRef = roofRef.child('dogs')
+
 class Inputs {
   constructor() {
     this.name = {
@@ -61,22 +64,40 @@ const inputs = new Inputs();
 function classify(e, callback) {
   const data = new FormData(document.querySelector('#doggo-image-form'));
   const XHR  = new XMLHttpRequest();
-
+  
   XHR.open('POST', 'http://127.0.0.1:5000/api/labels', true);
   XHR.setRequestHeader('Access-Control-Allow-Credentials', true);
   XHR.onload = (e) => {
     if (XHR.readyState === 4) {
       const response = JSON.parse(XHR.responseText);
-
+      
       callback(null, response);
       console.log(response);
     }
   }
-
+  
   console.log(data);
   XHR.send(data);
-  e.preventDefault();
+
+  if (e)
+    e.preventDefault();
 };
+
+function storeDoggo() {
+  classify(null, (response => {
+    const breed = Object.keys(response[0])[0]; 
+    const uid  = firebase.auth().currentUser.uid;
+
+    const name  = ''
+    const breed = ''
+    const birthplace = ''
+    const address = ''
+
+    const object = {};
+
+    object[name] = {breed, birthplace, address, uid}
+  }));
+}
 
 function signUp(e) {
   const {name, email, password} = inputs.signupValues;
