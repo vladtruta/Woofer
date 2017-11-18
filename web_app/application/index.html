@@ -111,67 +111,49 @@
 			</div>
 		</div>
 	</div>
-
-	<div id="add-doggo">
-		<form action="/upload" method="post" enctype="multipart/form-data" >
-			<label class="btn btn-default btn-file">
-					Browse <input <input type="file" name="image" style="display: none;">
-			</label>
-			<input type="submit" value="Upload your image" class="btn btn-primary">
-		</form>
-	</div>
+	<div class="container auth">
+	<div class="card">
+		<div class="card-content light-blue darken-3" >
+						<h4 class="title-light">Sign In</h4>
+		</div>
+	<div class="container">
 	<div class="row" id="add_doggo">
 
-	<form class="col s12" action="" id="doggo-image-form" enctype="multipart/form-data">
-		<div class="file-field input-field">
-     		<div class="btn waves-effect waves-light light-blue darken-3">
-        		<span>Upload</span>
-        		<input type="file" accept="image/*" name="dog_image" class="validate">
-      		</div>
-      		<div class="file-path-wrapper">
-        		<input class="file-path validate" type="text">
-      		</div>
-    	</div>
-		<div class="row">
-			<div class="input-field col s12 m6">
-			 	<i class="material-icons prefix">phone</i>
-				<input placeholder="Enter dog's name" name="dog_name" type="text" class="validate">
-				<label for="dog_name">Dog's name</label>
+		<form class="col s12" action="" id="doggo-image-form" enctype="multipart/form-data">
+			<div class="row">
+				<div class="input-field col s12 m6">
+					<i class="material-icons prefix">phone</i>
+					<input name="dog_name" type="text" class="validate">
+					<label for="dog_name">Dog's name</label>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="input-field col s12 m6">
-			 	<i class="material-icons prefix">phone</i>
-				<input type="text" placeholder="Birthplace" name="dog_birthplace" class="validate">
-				<label for="dog_birthplace">Dog's birthplace</label>
+			<div class="row">
+				<div class="input-field col s12 m6">
+					<i class="material-icons prefix">phone</i>
+					<input type="text"  name="dog_birthplace" class="validate">
+					<label for="dog_birthplace">Dog's birthplace</label>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="input-field col s12 m6">
-				<i class="material-icons prefix">phone</i>
-				<input type="text" placeholder="Dog's current address" name="dog_address" class="validate">
-				<label for="dog_address">Dog's current address</label>
+			<div class="row">
+				<div class="input-field col s12 m6">
+					<i class="material-icons prefix">phone</i>
+					<input type="text" name="dog_address" class="validate">
+					<label for="dog_address">Dog's current address</label>
+				</div>
 			</div>
-		</div>
-		<div>
-			<button id="btn-login" class="btn waves-effect waves-light light-blue darken-3" type="" name="action">
-				Login
-				<i class="material-icons right">send</i>
-			</button>
-		</div>
-	</form>
-
-	 <form action="#">
-    <div class="file-field input-field">
-      <div class="btn">
-        <span>File</span>
-        <input type="file">
-      </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text">
-      </div>
-    </div>
-  </form>
+			<div class="row">
+				<div class="file-field input-field">
+					<button class="btn waves-effect waves-light light-blue darken-3">
+						<span>Upload</span>
+						<input type="file" accept="image/*" name="dog_image" class="validate">
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	</div>
+	</div>
+	</div>
 </div>
 
 
