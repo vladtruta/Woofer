@@ -17,9 +17,8 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use('/application', express.static(path.join(__dirname, 'application')));
-
 app.get('/', (request, response) => {
-  response.redirect('/application');
+  response.redirect('/application/about.html');
 });
 
 app.get('*', (request, response) => {
