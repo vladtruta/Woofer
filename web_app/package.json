@@ -1,0 +1,22 @@
+{
+  "name": "doggo_app",
+  "version": "1.0.0",
+  "description": "Creating a safe environment for dog breeders.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "dogs",
+    "neuronal_networks",
+    "ml"
+  ],
+  "author": "Marcus Pop",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
+  }
+}
