@@ -143,7 +143,6 @@ firebase.auth().onAuthStateChanged(user => {
       inputs.signupInputs.email.value = null;
       inputs.signupInputs.name.value = null;
       inputs.signupInputs.password.value = null;
-      Materialize.toast('Signed up', 2000, 'rounded');
     }
     
     inputs.name.markup.innerHTML = `Hello, ${user.name}`;
