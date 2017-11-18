@@ -33,6 +33,10 @@
   }
 }
 
+.auth
+{
+  padding-top: 80px;
+}
 
 
 .icon-block {
@@ -57,5 +61,52 @@ footer.page-footer {
 }
 
 .overflow-hidden {
-  overflow: hidden'
+  overflow: hidden;
 }
+ nav ul a,
+ nav .brand-logo {
+   color: white;
+ }
+ 
+ nav{
+   position: fixed;
+   z-index: 100
+ }
+ 
+ p {
+   line-height: 2rem;
+ }
+ 
+ #index-banner .section {
+   padding-top: 60px;
+ }
+ #logo-image {
+   width: 63px;
+ }
+ 
+ .button-collapse {
+   color: #87eaff;
+ } 
+ .how-to-text {
+   text-align: center;
+ }
+ 
+ .users_buttons li{
+   display: inline-block;
+   margin-right:5px;
+ }
+ 
+ .users_buttons a {
+   width: 130px;
+ }
+  
+ .icon-block {
+   padding: 0 15px;
+ }
+ .icon-block .material-icons {
+   font-size: inherit;
+ }
+ 
+ footer.page-footer {
+   margin: 0;
+ }
