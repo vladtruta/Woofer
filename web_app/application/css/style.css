@@ -64,50 +64,83 @@ footer.page-footer {
   overflow: hidden;
 }
 /* Vlad's CSS Stylesheet */
- nav ul a,
- nav .brand-logo {
-   color: white;
- }
-
- nav{
-   position: fixed;
-   z-index: 100
- }
-
- p {
-   line-height: 2rem;
- }
  
- #index-banner .section {
-   padding-top: 60px;
- }
- #logo-image {
-   width: 63px;
- }
+nav ul a,
+nav .brand-logo {
+  color: white;
+}
 
- .button-collapse {
-   color: #87eaff;
- }
- .how-to-text {
-   text-align: center;
- }
+nav{
+  position: fixed;
+  z-index: 100
+}
 
- .users_buttons li{
-   display: inline-block;
-   margin-right:5px;
- }
+p {
+  line-height: 2rem;
+}
 
- .users_buttons a {
-   width: 130px;
- }
+#index-banner .section {
+  padding-top: 60px;
+}
 
- .icon-block {
-   padding: 0 15px;
- }
- .icon-block .material-icons {
-   font-size: inherit;
- }
+#logo-image {
+  width: 63px;
+}
 
- footer.page-footer {
-   margin: 0;
- }
+.button-collapse {
+  color: #87eaff;
+}
+
+.parallax-container {
+  min-height: 400px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+  background-color: rgba(0,0,0,0.3)
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+.how-to-text {
+  text-align: center;
+}
+
+.users_buttons li{
+  display: inline-block;
+  margin-right:5px;
+}
+
+.users_buttons a {
+  width: 130px;
+}
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+  #logo-image {
+    width: 56px;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
