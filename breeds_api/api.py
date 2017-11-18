@@ -16,7 +16,6 @@ cors   = CORS(app, resources = {r'/api/*': {'origins': 'http://localhost:8080'}}
 graph  = label_image.load_graph('tf/retrained_graph.pb')
 labels = label_image.load_labels('tf/retrained_labels.txt')
 
-
 @app.route('/api')
 def index():
   return 'Root api point for dogs breeds classification. Go to labels'
@@ -29,9 +28,7 @@ def post_labels():
 
   path = os.path.join(target, f_name);
   f.save(path)
-
   classified = label_image.classify_image(path, graph, labels)
-
   os.remove(path)
 
   return json.dumps({'prediction': classified, 'filename': f_name})
