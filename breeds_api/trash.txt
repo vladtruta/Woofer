@@ -2,3 +2,17 @@ input_height = 299
 input_width = 299
 input_mean = 0
 input_std = 255
+
+{address: "Germany", birthplace: "Norway", breed: "labrador", image_name: "labrador.jpg", uid: "2FMEXcScJ5b4GK0hFB9JhvsMuXt1", …}
+1
+:
+{address: "Spain", birthplace: "USA", breed: "labrador", image_name: "cutu_6.jpg", uid: "2FMEXcScJ5b4GK0hFB9JhvsMuXt1", …}
+2
+:
+{address: "Spain", birthplace: "France", breed: "labrador", image_name: "cutu_7.jpg", uid: "2FMEXcScJ5b4GK0hFB9JhvsMuXt1", …}
+3
+:
+{address: "Germany", birthplace: "Madagascar", breed: "labrador", image_name: "labrador.jpg", uid: "2FMEXcScJ5b4GK0hFB9JhvsMuXt1", …}
+length
+:
+4
