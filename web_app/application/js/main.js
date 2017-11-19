@@ -69,7 +69,8 @@ function classify(e) {
       // validate input, bla bla, this' a hackathon sunny boy
       
       const response = JSON.parse(XHR.responseText);
-      
+      const image_name = response.filename;
+
       const breed = Object.keys(response.prediction[0])[0]; 
       const uid  = firebase.auth().currentUser.uid;
       
@@ -78,9 +79,9 @@ function classify(e) {
       const address = document.querySelector('input[name=dog_address]').value;
             
       const dbRef = firebase.database().ref(`dogs`)
-      const doggo = {breed, birthplace, address, uid};
+      const doggo = {breed, birthplace, address, uid, image_name};
 
-      const ref  = firebase.storage().ref(`images/user_${uid}/${response.filename}`)
+      const ref  = firebase.storage().ref(`images/user_${uid}/${image_name}`)
       const file = document.querySelector('input[type=file]').files[0];
 
       dbRef.child(name).set(doggo);
@@ -96,6 +97,12 @@ function classify(e) {
 
   e.preventDefault();
 };
+
+function search(e) {
+
+
+  e.preventDefault();
+}
 
 function signUp(e) {
   const {name, email, password} = inputs.signupValues;
