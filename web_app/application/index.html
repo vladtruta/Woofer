@@ -163,32 +163,66 @@
 </div>
 </div>
 </div>
-
+<div class="container">
+<div class="card">
+<div class="card-content light-blue darken-3" >
+				<h4 class="title-light">Search Dog</h4>
+</div>
+<div class="container">
 	<div id="search_dogo">
 		<form>
-			<label for="birth_country">Doggo's birth place</label>
-			<input type="text" placeholder="Enter country name" name="birth_country">
+			<div class="row">
+				<div class="input-field col s12 m3">
+					<input type="text" name="birth_country">
+					<label for="birth_country"><b>Doggo's birth place</b></label>
+				</div>
+				<div class="input-field col s12 m3">
+						<input type="text" name="address_country">
+						<label for="address_country"><b>Doggo's current address</b></label>
+				</div>
+				<div class="input-field col s12 m3">
+						<input type="text"  name="breed_search">
+						<label for="breed_search"><b>Doggo's breed</b></label>
+				</div>
+				<div style="padding-top: 20px">
+						<button id="btn-search-doggo" class="btn waves-effect waves-light light-blue darken-3 right"  type="" name="action">
+								Search
+								<i class="material-icons right">search</i>
+						</button>
+				</div>
+				
 			<!--  Yeah, yeah, add autocomplete for this shit, meh-->
-			<label for="address_country">Doggo's current address</label>
-			<input type="text" placeholder="Enter country name" name="address_country">
-
-			<label for="breed_search">Doggo's breed</label>
-			<input type="text" placeholder="Enter a breede" name="breed_search">
 			
-			<div id="search_output">
-				<!--
-					Gonna look something like this: (put classses in the JS generated HTML markup)
-					<li>
-						<img>
-						<p> name
-						<p> breed
-						<p> country
-					</li>
-				-->
+			
+			
+			
 			</div>
-
 		</form>
+		
 	</div>
+</div>
+</div>
+
+
+<!--
+Gonna look something like this: (put classses in the JS generated HTML markup)
+	<li>
+		<img>
+		<p> name
+		<p> breed
+		<p> country
+	</li>
+-->
+	<ul class=" search_output collection">
+			<li class="collection-item avatar">
+			  <img src="images/yuna.jpg" alt="" class="circle">
+			  <span class="name title"><b>Name</b></span>
+			  <p class="breed"><b>Breed</b> </p>
+			  <p class="country"><b>Country</b></p>
+			  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+			</li>
+	</ul>
+</div>
 
 
 	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
