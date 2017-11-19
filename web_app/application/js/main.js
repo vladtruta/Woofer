@@ -1,9 +1,19 @@
 'use strict';
 
-let display = null;
+(function initFirebase() {
+  const config = {
+    apiKey: "AIzaSyALdJxKE1Rxu03PSicJwplVzAerA_Nq2bY",
+    authDomain: "doggos-a0b2e.firebaseapp.com",
+    databaseURL: "https://doggos-a0b2e.firebaseio.com",
+    projectId: "doggos-a0b2e",
+    storageBucket: "doggos-a0b2e.appspot.com",
+    messagingSenderId: "383374070496"
+  };
+  
+  firebase.initializeApp(config);
+})();
 
-const roofRef = firebase.database().ref();
-const dogsRef = roofRef.child('dogs')
+let display = null;
 
 class Inputs {
   constructor() {
@@ -48,55 +58,50 @@ class Inputs {
 
 const inputs = new Inputs();
 
-(function initFirebase() {
-  const config = {
-    apiKey: "AIzaSyALdJxKE1Rxu03PSicJwplVzAerA_Nq2bY",
-    authDomain: "doggos-a0b2e.firebaseapp.com",
-    databaseURL: "https://doggos-a0b2e.firebaseio.com",
-    projectId: "doggos-a0b2e",
-    storageBucket: "doggos-a0b2e.appspot.com",
-    messagingSenderId: "383374070496"
-  };
-  
-  firebase.initializeApp(config);
-})();
-
-function classify(e, callback) {
+function classify(e) {
   const data = new FormData(document.querySelector('#doggo-image-form'));
   const XHR  = new XMLHttpRequest();
-  
+
   XHR.open('POST', 'http://127.0.0.1:5000/api/labels', true);
   XHR.setRequestHeader('Access-Control-Allow-Credentials', true);
-  XHR.onload = (e) => {
+  XHR.onload = (event) => {
     if (XHR.readyState === 4) {
-      const response = JSON.parse(XHR.responseText);
+      // validate input, bla bla, this' a hackathon sunny boy
       
-      callback(null, response);
-      console.log(response);
+      const response = JSON.parse(XHR.responseText);
+      const image_name = response.filename;
+
+      const breed = Object.keys(response.prediction[0])[0]; 
+      const uid  = firebase.auth().currentUser.uid;
+      
+      const name  = document.querySelector('input[name=dog_name]').value;
+      const birthplace = document.querySelector('input[name=dog_birthplace]').value;
+      const address = document.querySelector('input[name=dog_address]').value;
+            
+      const dbRef = firebase.database().ref(`dogs`)
+      const doggo = {breed, birthplace, address, uid, image_name};
+
+      const ref  = firebase.storage().ref(`images/user_${uid}/${image_name}`)
+      const file = document.querySelector('input[type=file]').files[0];
+
+      dbRef.child(name).set(doggo);
+
+      ref.put(file)
+        .then(snap => {
+          console.log('Doggo\'s image has been uploaded.');
+        });
     }
   }
   
-  console.log(data);
   XHR.send(data);
 
-  if (e)
-    e.preventDefault();
+  e.preventDefault();
 };
 
-function storeDoggo() {
-  classify(null, (response => {
-    const breed = Object.keys(response[0])[0]; 
-    const uid  = firebase.auth().currentUser.uid;
+function search(e) {
 
-    const name  = ''
-    const breed = ''
-    const birthplace = ''
-    const address = ''
 
-    const object = {};
-
-    object[name] = {breed, birthplace, address, uid}
-  }));
+  e.preventDefault();
 }
 
 function signUp(e) {
@@ -179,4 +184,5 @@ firebase.auth().onAuthStateChanged(user => {
 inputs.buttons.login.addEventListener('click', login);
 inputs.buttons.signout.addEventListener('click', signOut);
 inputs.buttons.signup.addEventListener('click', signUp);
-// document.querySelector('#submit-btn').addEventListener('click', classify);
+
+document.querySelector('button#btn-submit-doggo').addEventListener('click', classify);
