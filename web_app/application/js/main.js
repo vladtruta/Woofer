@@ -98,9 +98,14 @@ function classify(e) {
   e.preventDefault();
 };
 
-function listMarkup(name, address, breed) {
+function listMarkup(name, address, breed, src) {
   return `
-    <li>
+    <li class="collection-item avatar">
+      <img src="${src}" alt="" class="circle">
+      <span class="name title">Name: <b>${name}</b></span>
+      <p class="breed">Breed: <b>${breed}</b> </p>
+      <p class="country">Location: <b>${address}</b></p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
     </li>
   `;
 }
@@ -111,14 +116,17 @@ function search(e) {
   const breed_search = document.querySelector('input[name=breed_search]').value;
 
   const ref = firebase.database().ref(`dogs`);
+  const storage = firebase.storage();
+
+  const list = document.querySelector('#search_output');
 
   ref.orderByChild('breed')
     .equalTo(breed_search)
     .once('value')
     .then(data => {
-      result = data.val();
-      _map = [];
-      index = 0;
+      let result = data.val();
+      let _map = [];
+      let index = 0;
 
       for (const prop in result) {
         _map[index] = result[prop];
@@ -132,8 +140,13 @@ function search(e) {
         };
       })
 
-      _map = _map.map(item => listMarkup(item.name, item.address, item.breed));
-      _map.join('\n'); // final html
+      for (const item of _map) {
+        const ref = storage.ref(`images/user_${item.uid}/${item.image_name}`);
+
+        ref.getDownloadURL().then(url => {
+          list.innerHTML += listMarkup(item.name, item.address, item.breed, url);
+        }) 
+      }
     });
 
   e.preventDefault();
@@ -165,6 +178,41 @@ function login(e) {
       console.log(error);
       Materialize.toast(error, 5000, 'rounded');
     });
+}
+
+function putDoggos() {
+  const list = document.querySelector('#get_doggos');
+  const ref = firebase.database().ref(`dogs`);
+  const storage = firebase.storage();
+
+
+  ref.orderByChild('uid')
+    .equalTo(firebase.auth().currentUser.uid)
+    .once('value')
+    .then(data => {
+      let result = data.val();
+      let _map = [];
+      let index = 0;
+
+      if (!result || Object.keys(result) === 0) {
+        list.innerHTML = '<p style="text-align: center;">No data available</p>';
+        return;
+      }
+
+      for (const prop in result) {
+        _map[index] = result[prop];
+        _map[index]['name'] = prop
+        index++;
+      }
+      for (const item of _map) {
+        const ref = storage.ref(`images/user_${item.uid}/${item.image_name}`);
+
+        ref.getDownloadURL().then(url => {
+          list.innerHTML += listMarkup(item.name, item.address, item.breed, url);
+        }) 
+      }
+    });
+
 }
 
 function uiLogoutLogic(toast) {
@@ -210,6 +258,7 @@ firebase.auth().onAuthStateChanged(user => {
     inputs.buttons.signout.classList.remove('hidden');
     form.classList.add('hidden');
     Materialize.toast('Logged in!', 2000, 'rounded');
+    putDoggos();
   }
   else {
     uiLogoutLogic(false);
@@ -221,3 +270,4 @@ inputs.buttons.signout.addEventListener('click', signOut);
 inputs.buttons.signup.addEventListener('click', signUp);
 
 document.querySelector('button#btn-submit-doggo').addEventListener('click', classify);
+document.querySelector('button#btn-search-doggo').addEventListener('click', search);

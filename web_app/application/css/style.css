@@ -152,7 +152,11 @@ footer.page-footer {
 #add-dogo {
   margin-top: 20vh;
 }
-.right
-{
+.right {
   float: right;
+}
+
+#user-doggos {
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 }

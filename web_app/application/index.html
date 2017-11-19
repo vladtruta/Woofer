@@ -168,7 +168,7 @@
 <div class="card-content light-blue darken-3" >
 				<h4 class="title-light">Search Dog</h4>
 </div>
-<div class="container">
+<div class="container" style=" margin-top: 10vh;">
 	<div id="search_dogo">
 		<form>
 			<div class="row">
@@ -213,17 +213,25 @@ Gonna look something like this: (put classses in the JS generated HTML markup)
 		<p> country
 	</li>
 -->
-	<ul class=" search_output collection">
+	<ul class="collection" id="search_output" style="margin-bottom: 5vh;"><!--
 			<li class="collection-item avatar">
 			  <img src="images/yuna.jpg" alt="" class="circle">
 			  <span class="name title"><b>Name</b></span>
 			  <p class="breed"><b>Breed</b> </p>
 			  <p class="country"><b>Country</b></p>
 			  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-			</li>
+			</li>-->
 	</ul>
 </div>
 
+<div class="container" id="user-doggos">
+	<div class="row">
+		<h5>Your registered dogs until now</h5>
+		<ul class="collection" id="get_doggos">
+			
+		</ul>
+	</div>
+</div>
 
 	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
