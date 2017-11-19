@@ -98,8 +98,43 @@ function classify(e) {
   e.preventDefault();
 };
 
-function search(e) {
+function listMarkup(name, address, breed) {
+  return `
+    <li>
+    </li>
+  `;
+}
 
+function search(e) {
+  const birth_country = document.querySelector('input[name=birth_country]').value;
+  const address_country = document.querySelector('input[name=address_country]').value;
+  const breed_search = document.querySelector('input[name=breed_search]').value;
+
+  const ref = firebase.database().ref(`dogs`);
+
+  ref.orderByChild('breed')
+    .equalTo(breed_search)
+    .once('value')
+    .then(data => {
+      result = data.val();
+      _map = [];
+      index = 0;
+
+      for (const prop in result) {
+        _map[index] = result[prop];
+        _map[index]['name'] = prop
+        index++;
+      }
+      
+      _map = _map.filter(item => {
+        if (item.birthplace === birth_country && item.address === address_country) {
+          return item;
+        };
+      })
+
+      _map = _map.map(item => listMarkup(item.name, item.address, item.breed));
+      _map.join('\n'); // final html
+    });
 
   e.preventDefault();
 }
