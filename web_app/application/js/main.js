@@ -88,6 +88,9 @@ function classify(e) {
 
       ref.put(file)
         .then(snap => {
+          console.log(breed, response.prediction[0][breed])
+
+          Materialize.toast(`Recognized your dog as being a ${breed} with ${parseFloat(response.prediction[0][breed]) * 100}% accuracy.`, 5000, 'rounded');
           console.log('Doggo\'s image has been uploaded.');
         });
     }
@@ -218,6 +221,8 @@ function putDoggos() {
 function uiLogoutLogic(toast) {
   const form = document.querySelector('#auth-form');
 
+  window.scrollTo(0, 0);
+  document.body.classList.add('overflow-hidden');
   inputs.name.markup.innerHTML = inputs.name.defaultHTML;
   inputs.buttons.signout.classList.add('hidden');
   form.classList.remove('hidden');
@@ -254,6 +259,7 @@ firebase.auth().onAuthStateChanged(user => {
       inputs.signupInputs.password.value = null;
     }
     
+    document.body.classList.remove('overflow-hidden');
     inputs.name.markup.innerHTML = `Hello!`;
     inputs.buttons.signout.classList.remove('hidden');
     form.classList.add('hidden');
